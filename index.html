@@ -1,0 +1,105 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script> -->
+
+    <script src="https://unpkg.com/vue-select@latest"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/vue-select@latest/dist/vue-select.css"
+    />
+
+    <link rel="stylesheet" href="css/master.css" />
+    <title>University Index</title>
+  </head>
+  <body>
+    <div class="background" id="vue-app">
+      <h1>UNIVERSITY INDEX</h1>
+
+      <form name="appForm">
+        <table class="main-table">
+          <colgroup>
+            <col width="20%" />
+            <col width="80%" />
+          </colgroup>
+
+          <tr>
+            <td class="right-aligned">Select a country:</td>
+            <td>
+              <v-select
+                v-model="countrySelected"
+                v-bind:options="countries"
+                v-on:input="fetchUniversities();universitySelected=null"
+              ></v-select>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="right-aligned">Select a university:</td>
+            <td>
+              <v-select
+                v-model="universitySelected"
+                v-bind:options="universities"
+                v-bind:label="'name'"
+              ></v-select>
+            </td>
+          </tr>
+
+          <tr>
+            <td
+              class="right-aligned"
+              v-bind:class="{ 'multiple-entries': (universitySelected != null && universitySelected.domains.length > 1) }"
+            >
+              Domains:
+            </td>
+            <td v-if="universitySelected!=null">
+              <span v-for="domain in universitySelected.domains"
+                >{{ domain }}<br
+              /></span>
+            </td>
+          </tr>
+
+          <tr v-if="!weblinkCompleted">
+            <td
+              class="right-aligned"
+              v-bind:class="{ 'multiple-entries': (universitySelected != null && universitySelected.web_pages.length > 1) }"
+            >
+              Web Pages:
+            </td>
+            <td v-if="universitySelected!=null">
+              <span v-for="webpage in universitySelected.web_pages">
+                <a v-bind:href="webpage" target="_blank">{{ webpage }}<br /></a>
+              </span>
+            </td>
+          </tr>
+        </table>
+      </form>
+
+      <weblink-preview
+        :targetuniversity="universitySelected"
+        v-on:completion="weblinkCompleted = $event"
+      ></weblink-preview>
+
+      <div class="headspaced">
+        <hr />
+        <p class="centered footnotes">
+          Background image by
+          <a
+            href="https://pixabay.com/users/alexas_fotos-686414/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2052868"
+            target="_blank"
+            >Here and now on Pixabay</a
+          >
+          from
+          <a
+            href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2052868"
+            target="_blank"
+            >Pixabay</a
+          >
+        </p>
+      </div>
+    </div>
+    <script src="js/weblink-preview.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>

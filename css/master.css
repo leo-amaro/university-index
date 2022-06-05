@@ -1,0 +1,139 @@
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+a:visited {
+    color: purple;
+    text-decoration: none;
+}
+
+a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+body, html {
+    height: 100%;
+}
+
+h1 {
+    color: green;
+    padding-top: 2rem;
+    text-align: center;
+}
+
+h2 {
+    color: darkblue;
+    text-align: center;
+}
+
+h3 {
+    color: darkgreen;
+    text-align: center;
+}
+
+hr {
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    border-top: 5px dotted green;
+    width: 75%;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3rem;
+}
+
+.background {
+    background-image: url(../images/bkg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    z-index: -1;
+}
+
+.centered {
+    text-align: center;
+}
+
+.footnotes {
+    font-size: 0.7rem;
+}
+
+.headspaced {
+    margin-top: 10rem;
+}
+
+.link-preview-table {
+    background-color: rgb(169, 197, 120);
+    /* height: 10px; */
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80%;
+    /* table-layout: fixed; */
+    width: 80%;
+}
+
+.link-preview-table td {
+    /* uncomment the following line to see the cell layout */
+    /* border: 2px solid red; */
+    height: 100px;
+    padding: 0.5rem;
+}
+
+.link-preview-description {
+    color: darkslategrey;
+    text-align: left;
+    vertical-align: top;
+}
+
+.link-preview-image {
+    height: 100px;
+    width: 200px;
+    text-align: right;
+    vertical-align: top;
+}
+
+.link-preview-image img {
+    height: 100px;
+    object-fit: scale-down;
+    overflow: hidden;
+    width: 200px;
+}
+
+.link-preview-title {
+    color: darkgreen;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: left;
+    vertical-align: top;
+}
+
+.link-preview-visit {
+    text-align: left;
+}
+
+.main-table {
+    border-collapse: collapse;
+    font-size: 1rem;
+    margin: 0.8rem;
+    width: 95%;
+}
+
+.main-table td {
+    /* uncomment the following line to see the cell layout */
+    /* border: 2px solid red; */
+    padding: 0.5rem;
+}
+
+.multiple-entries {
+    color: blue;
+    font-weight: bold;
+}
+
+.right-aligned {
+    text-align: right;
+}
